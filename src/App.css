@@ -1,38 +1,227 @@
+/* General Styles */
 .App {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  background: linear-gradient(120deg, #e0eafc, #cfefd9);
+  animation: backgroundMove 20s ease infinite alternate;
+  color: #333;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@keyframes backgroundMove {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+/* Modal Form Styles */
+.modal {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+}
+
+.modal-header {
+  font-size: 1.5em;
+  margin-bottom: 20px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.modal input,
+.modal textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 0.5px solid grey;
+  border-radius: 10px;
+  box-sizing: border-box;
+  transition: border-width 0.3s;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.modal input:focus,
+.modal textarea:focus {
+  border-width: 0.55px;
+  border-color: blue;
+  outline: none;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.modal button {
+  background-color: #000;
+  color: #fff;
+  padding: 12px;
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-top: 10px;
+}
+
+.modal button:hover {
+  background-color: #333;
+}
+
+/* Results Page Styles */
+.results-container {
+  padding: 20px;
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.results-header {
+  text-align: left;
+  margin-bottom: 20px;
+  font-weight: bold;
+  font-size: 1.4em;
+}
+
+.search-summary {
+  margin-bottom: 40px;
+  font-size: 1.1em;
+}
+
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  justify-content: center;
+}
+
+.user-card {
+  background-color: #f8f8f8;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  padding: 15px;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-header {
+  display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.select-user {
+  margin-left: auto;
+  cursor: pointer;
+}
+
+.card-body p {
+  display: flex;
+  align-items: center;
+  margin: 5px 0;
+  gap: 5px;
+}
+
+.email {
+  word-break: break-all;
+}
+
+.hireable.yes {
+  color: green;
+}
+
+.hireable.no {
+  color: red;
+}
+
+.card-footer {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.profile-link {
+  color: #007bff;
+  font-size: 0.9em;
+  text-decoration: none;
+  transition: color 0.2s, text-decoration 0.2s;
+}
+
+.profile-link:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
+.load-more {
+  background-color: #000;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: block;
+  margin: 40px auto;
+  transition: background-color 0.2s;
+}
+
+.load-more:hover {
+  background-color: #333;
+}
+
+/* Icon Styles */
+.fa-star, .fa-code-branch, .fa-envelope, .fa-check, .fa-times {
+  margin-right: 5px;
+  color: #007bff;
+}
+
+/* Back and Export Buttons */
+.back-button, .export-button {
+  position: absolute;
+  font-size: 1.5em;
+  cursor: pointer;
+}
+
+.back-button {
+  top: 40px;
+  left: 40px;
+}
+
+.export-button {
+  top: 40px;
+  right: 40px;
+}
+
+/* Checkbox Styles */
+.select-user {
+  cursor: pointer;
+}
+
+.user-card input[type="checkbox"]:checked + .card-header + .card-body + .card-footer {
+  border: 2px dotted #007bff; /* Visual cue when selected */
+}
+
+/* Email Link Styles */
+.email-link {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.email-link:hover {
+  text-decoration: underline;
+}
+
+.footer-link {
+  position: fixed; /* Changed from absolute to fixed */
+  bottom: 40px;
+  right: 20px;
+  font-size: 80%; /* 20% smaller than the base font size */
+  color: black; /* Text color changed to black */
+  text-decoration: none;
+}
+
+.footer-link:hover {
+  text-decoration: underline;
 }
